@@ -4,13 +4,18 @@
   <%= link_to "Create List", new_list_path, class: "button-submit" %>
 </div>
 
+<%# cl_image_tag("dyjwgafmfpbl1znhvx7r",
+      width: 400, height: 300, crop: :fill) %>
+
+      <%# cl_image_tag("dyjwgafmfpbl1znhvx7r",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
+
 <div class="d-flex flex-wrap justify-content-center">
 
 <% @lists.each do |list| %>
   <%= link_to list_path(list) do %>
-    <div class="card d-inline-flex m-4">
+    <div class="card d-inline-flex m-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
       <div class="test">
-        <%# image_tag "card-photo.jpeg", alt: "Le Wagon" %>
         <h4><%= list.name %></h4>
       </div>
     </div>
