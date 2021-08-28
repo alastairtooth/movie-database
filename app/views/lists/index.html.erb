@@ -1,0 +1,19 @@
+<div class="splash">
+  <h1>THIS IS CINEPHILIA</h1>
+  <P>Your home for must-watch film lists</P>
+  <%= link_to "Create List", new_list_path, class: "button-submit" %>
+</div>
+
+<div class="d-flex flex-wrap justify-content-center">
+
+<% @lists.each do |list| %>
+  <%= link_to list_path(list) do %>
+    <div class="card d-inline-flex m-4">
+      <div class="test">
+        <%# image_tag "card-photo.jpeg", alt: "Le Wagon" %>
+        <h4><%= list.name %></h4>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>

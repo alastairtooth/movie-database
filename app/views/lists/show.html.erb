@@ -1,0 +1,18 @@
+<h1><%= @list.name %></h1>
+
+<%= link_to "Add Movie", new_list_bookmark_path(@list), class: 'btn btn-primary' %>
+
+<br><br>
+<% @list.movies.each do |movie| %>
+  <h4><%= movie.title %></h4>
+  <ul>
+    <li>Plot: <%= movie.overview %></li>
+    <li>Rating: <%= movie.rating %></li>
+  </ul>
+<% end %>
+<%= link_to "Remove",
+    list_path(@list),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+<br>
+<%= link_to 'back', lists_path %>
